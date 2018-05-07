@@ -34,6 +34,7 @@ class Student extends Person {
         }    
     }
 }
+
  // Class Teacher that extends the Person class with additional attribute for
  // honorific
 
@@ -43,6 +44,7 @@ class Teacher extends Person {
         this.honorific = honorific;
     }
 }
+
 // Course class 
 
 class Course {
@@ -57,15 +59,14 @@ class Course {
 // Method to add students to roster    
 
 addStudent(){
-    let name = prompt('Enter Student Name:');
-    let email = prompt('Enter Student Email:');
+    let name = prompt('Enter Student Name:');    
+    let email = prompt('Enter Student Email:');      
     let newStudent = new Student(name, email);
     this.students.push(newStudent);
     updateRoster(this);
-    
 }
   
- // Method to add teacher to roster 
+// Method to add teacher to roster 
     
 setTeacher(){
     let name = prompt("Enter Teacher Name:");
@@ -75,29 +76,7 @@ setTeacher(){
     updateRoster(this);
 }
 
-
-
-
-    /////////////////////////////////////////
-    // TODO: ADD `markAttendance()` method /////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
-    //
-    // TODO: Create a method to mark a student's attendance called `markAttendance()`.
-    // This method should accept a parameter called `username` containing the
-    // `username` that will match the `username` property on the `Student` object.
-
-    // TODO: The FIRST step to create a functioning `markAttendance()` method is
-    // to retreive the `Student` object out of the `this.students` Array. You
-    // can use the `this.findStudent()` method (provided below) to accomplish
-    // that goal. Note that you will also have to handle two cases: The default
-    // behavior should be to mark the student present. The alternate behavior
-    // should be to mark the student absent.
-
-    // TODO: Now that we have retrieved the specific `Student` object we want
-    // to work with, we can use the appropriate method on the `Student` object
-    // to record the attendance.
-
-
+// Method to mark attendance
 
 markAttendance(username, status='present') {
     let student = this.findStudent(username);
@@ -108,9 +87,6 @@ markAttendance(username, status='present') {
     }
     updateRoster(this);
 }
-
-
-
 
     //////////////////////////////////////////////
     // Methods provided for you -- DO NOT EDIT /////////////////////////////////
@@ -127,11 +103,7 @@ markAttendance(username, status='present') {
     }
 }
 
-
-
-/////////////////////////////////////////
-// TODO: Prompt User for Course Info  //////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+// Prompt user for course information
 
 let courseCode = prompt('Enter course code (e.g., WATS 3020):');
 
@@ -139,8 +111,7 @@ let courseTitle = prompt('Enter course title:');
 
 let courseDescription = prompt('Enter course description:');
 
-// Create a new `Course` object instance called `myCourse` using the three data points just collected from the user.
-// TODO: Add in the values for the information supplied by the user above.
+// Create a new `Course` object instance called `myCourse` 
 
 let myCourse = new Course(courseCode, courseTitle, courseDescription);
 
@@ -255,6 +226,7 @@ function setupAttendanceButtons(){
             myCourse.markAttendance(e.target.dataset.username, 'absent');
             updateRoster(myCourse);
         });
-    }
+    }   
+    
 }
 
